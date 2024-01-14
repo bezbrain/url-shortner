@@ -18,9 +18,10 @@ const LinkSchema = new Schema(
   { timestamps: true }
 );
 
-LinkSchema.pre("save", function () {
+LinkSchema.pre("save", async function (next) {
   this.shortUrl = nanoId.nanoid(7);
-  this.fullUrl = `https://url-01fx.onrender.com/${this.shortUrl}`;
+  this.fullUrl = `https://url-01fx.onrender.com/FmDqaFq/${this.shortUrl}`;
+  next();
 });
 
 module.exports = model("Links", LinkSchema);

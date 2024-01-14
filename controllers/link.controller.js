@@ -18,17 +18,13 @@ const getUrl = async (req, res) => {
   const {
     params: { shortUrl },
   } = req;
-  console.log(shortUrl);
 
   const url = await LinkCollection.findOne({ shortUrl });
-  console.log(url);
-  console.log(url.originalUrl);
 
   if (!url) {
     throw new NotFoundError("The shortUrl not found");
   }
-
-  res.status(StatusCodes.OK).redirect(url.originalUrl);
+  res.redirect(url.originalUrl);
 };
 
 module.exports = {
