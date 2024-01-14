@@ -17,7 +17,7 @@ const port = process.env.PORT || 3000;
 app.get("/api/v1", (req, res) => {
   return res.send("This is the home page");
 });
-app.use("/api/v1", linkRouter);
+app.use("/", linkRouter);
 
 app.use(errorHandlerMiddleware);
 app.use(notFoundMiddleware);
