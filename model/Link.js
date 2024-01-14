@@ -20,7 +20,7 @@ const LinkSchema = new Schema(
 
 LinkSchema.pre("save", async function (next) {
   this.shortUrl = nanoId.nanoid(7);
-  this.fullUrl = `https://url-01fx.onrender.com/FmDqaFq/${this.shortUrl}`;
+  this.fullUrl = `https://url-01fx.onrender.com/${this.shortUrl}`;
   next();
 });
 
